@@ -7,7 +7,7 @@ This repository contains all the projects I have created for the **Database Desi
 ## Contents
 Each folder contains a separate project I have worked on during the class. I will gradually add new projects to showcase my progress in learning.
 
-## 🛠 Technologies & Tools
+## Technologies & Tools
 - **SQL** – The main language used in the projects. I focus on database design, queries, and optimization.
 - **VBA** – Used for automating database-related tasks and integrating with Microsoft Access and Excel.
 
