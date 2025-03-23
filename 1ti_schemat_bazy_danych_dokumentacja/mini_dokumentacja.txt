@@ -7,3 +7,12 @@ aplikacja jest podzielona na menu które otwiera się przy starcie bazy danych b
 aplikacja jest podzielona na menu które otwiera się przy starcie bazy danych baza danych ma tez zmieniną nazwe aplikaci na "baza danych - poczta"  i ma tez zmieniną ikonę zrobioną przezemnie w programie phgotopea w menu znajdują się wszytkie formularze raporty i jest tez możliwość dodawania rekordów  do tabel  w formularzach są przyciski do przemieszczania się pomiędzy i jest tez pole do wyszukiwania danych w folmularzy i oczywyiscie jest tez przycisk na powót do menu jak powroci się do menu folmularz automatycznie się zamyka żeby nie było  problemów z pamięcią kiedy otworzymy zaduzo formularzy  w raportach jest przycisk powrót do menu i drukuj podczas, kiedy drukujemy dokument te przyciski się nie wyświetlają na wydrukowanym dokumencie wszytkie formularze i raporty maja ładny styl żeby pasował  z resztą aplikacji
 
 raporty zostały zrobione zapomnaą kwerend wiec jelsi stworzyłem kweredę nazwaną  RAPORT_(nazwa) zrobiłem ną później rtaport do którego można wejść przez głowne menuy menu ma też przycisk wyjścia z bazy danych
+
+kwerendy RAPORT_ które się wyruznają 
+
+RAPORT_Produkty_nigdy_nie_zamówione dlatego ze status płatności jest posortowany żeby zawsze wyświtlał  albio nieudaną albo anulowaną 
+
+RAPORT_Zwroty_według_produktów_i_klientów fdlatego ze pole zwrócone przez jest połaczeniem 3 pol czyli tytył imie i nazwesko
+
+
+
