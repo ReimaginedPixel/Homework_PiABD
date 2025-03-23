@@ -1,0 +1,9 @@
+dokumentacja 
+
+aplikacja jest podzielona na menu które otwiera się przy starcie bazy danych baza danych ma tez zmieniną nazwe aplikaci na "baza danych - poczta"  i ma tez zmieniną ikonę zrobioną przezemnie w programie phgotopea w menu znajdują  się wszytkie formularze marzna wybrać tam ich przeglądanie dodawanie i usuwanie  po wejsci do formularza widać  przyciski nawigacji pomiędzy rekordami podstawowe takie jak do przodu do tyłu i także wyszukaj jest tez mozliwaosc powrotu do menu i tez tutaj jest możliwość dodania i usuniecia rekordów
+
+
+
+aplikacja jest podzielona na menu które otwiera się przy starcie bazy danych baza danych ma tez zmieniną nazwe aplikaci na "baza danych - poczta"  i ma tez zmieniną ikonę zrobioną przezemnie w programie phgotopea w menu znajdują się wszytkie formularze raporty i jest tez możliwość dodawania rekordów  do tabel  w formularzach są przyciski do przemieszczania się pomiędzy i jest tez pole do wyszukiwania danych w folmularzy i oczywyiscie jest tez przycisk na powót do menu jak powroci się do menu folmularz automatycznie się zamyka żeby nie było  problemów z pamięcią kiedy otworzymy zaduzo formularzy  w raportach jest przycisk powrót do menu i drukuj podczas, kiedy drukujemy dokument te przyciski się nie wyświetlają na wydrukowanym dokumencie wszytkie formularze i raporty maja ładny styl żeby pasował  z resztą aplikacji
+
+raporty zostały zrobione zapomnaą kwerend wiec jelsi stworzyłem kweredę nazwaną  RAPORT_(nazwa) zrobiłem ną później rtaport do którego można wejść przez głowne menuy menu ma też przycisk wyjścia z bazy danych
