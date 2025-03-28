@@ -1,0 +1,5 @@
+- dodać wyszukiwanie fo formularzy tabeli
+
+dodać kwerendy funkcjonaln
+
+poprawić dokumentacje żeby dodać co można jeszcze rozwinąć
