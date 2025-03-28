@@ -51,3 +51,16 @@ FLUSH PRIVILEGES;
 
 TRUNCATE TABLE pracownicy;
 REVOKE DELETE, UPDATE ON pierwszat.* TO uczen;
+
+use mysql;
+
+SELECT * FROM user;
+
+SELECT Host,User,Password, Select_priv, authentication_string 
+FROM user;
+
+CREATE USER ola IDENTIFIED BY 'zaq1@WSX';
+CREATE DATABASE szkolaniowa;
+GRANT ALL ON szkolaniowa.* TO ola;
+
+FLUSH PRIVILEGES;
