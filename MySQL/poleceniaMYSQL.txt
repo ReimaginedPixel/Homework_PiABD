@@ -1,0 +1,53 @@
+cd ..
+cd ..
+cd \xampp\mysql\bin
+mysql -u root
+
+mysql -u uczen -p -h 10.0.0.28
+zaq1@WSX
+
+show databases;
+use pierwszat;
+show tables;
+describe pracownicy;
+
+CREATE TABLE `pracownicy` (
+  `id` int(11) NOT NULL,
+  `imie` varchar(50) NOT NULL,
+  `nazwisko` varchar(50) NOT NULL,
+  `pensja` decimal(6,2) DEFAULT NULL,
+  `data` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+INSERT INTO pracownicy (id, imie, nazwisko, pensja)
+VALUES (1, 'Woj', 'Mie', 1);
+
+CREATE TABLE `pracownicy` (
+  `id` int(11) NOT NULL PRIMARY KEY,
+  `imie` varchar(50) NOT NULL,
+  `nazwisko` varchar(50) NOT NULL,
+  `pensja` decimal(6,2) DEFAULT NULL,
+  `data` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE `pracownicy` (
+  `id` int(11) NOT NULL PRIMARY KEY auto_increment,
+  `imie` varchar(50) NOT NULL,
+  `nazwisko` varchar(50) NOT NULL,
+  `pensja` decimal(6,2) DEFAULT NULL,
+  `data` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+INSERT INTO pracownicy (imie, nazwisko, pensja)
+VALUES ('Woj', 'Mie', 1);
+
+UPDATE pracownicy SET pensja = 77 WHERE id = 421;
+
+DELETE FROM pracownicy WHERE id = 421;
+
+GRANT DELETE ON pierwszat.* TO uczen;
+FLUSH PRIVILEGES;
+
+TRUNCATE TABLE pracownicy;
+REVOKE DELETE, UPDATE ON pierwszat.* TO uczen;
