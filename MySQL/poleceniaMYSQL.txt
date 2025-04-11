@@ -64,3 +64,55 @@ CREATE DATABASE szkolaniowa;
 GRANT ALL ON szkolaniowa.* TO ola;
 
 FLUSH PRIVILEGES;
+
+CREATE TABLE klient (
+    id_klienta INT AUTO_INCREMENT PRIMARY KEY,
+    imie VARCHAR(50),
+    nazwisko VARCHAR(50),
+    ulica VARCHAR(100),
+    miasto VARCHAR(50),
+    kod_pocztowy VARCHAR(10),
+    kraj VARCHAR(50)
+);
+
+CREATE TABLE samochody (
+    id_auto INT AUTO_INCREMENT PRIMARY KEY,
+    marka VARCHAR(50) NOT NULL,
+    model VARCHAR(50) NOT NULL,
+    numer_rejestracyjny VARCHAR(20),
+    rocznik INT,
+    typ VARCHAR(50),
+    paliwo VARCHAR(20),
+    kolor VARCHAR(30),
+    liczba_drzwi INT,
+    przebieg INT,
+    cena DECIMAL(10, 2)
+);
+
+create table naprawa (
+	id_naprawa INT PRIMARY KEY auto_increment,
+	id_samochodu INT,
+	data DATE,
+	naprawa VARCHAR(50),
+	stan VARCHAR(10),
+	koszt DECIMAL(10,2)
+);
+--zaimportować naprawa_dane z katalogu c temp
+do bazy danych pierwszat
+
+
+
+
+
+cd c:/xampp/mysql/bin
+--przy małych danych wystarczy w silniku bazodanowym wkleić polecenia
+
+import danych lub wykonanie polcecen SQL
+--import danych z silnika bazodanowego
+\. sciezka_do_pliku.sql (np. c:\temp\polecenia.sql)
+
+--import danych w dużej ilosći z konsoli
+mysql -u root -p wypozyczalnia < polecenia.sql (np. c:\temp\polecenia.sql)
+
+--kopia zapasowa bazy danych
+mysqldump -u root -p wypozyczalnia > wypozyczalnia_dump.sql

@@ -1,0 +1,5 @@
+mysqldump
+
+mysqldump --help
+
+mysqldump -u root -p [
