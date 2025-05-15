@@ -1,0 +1,23 @@
+CREATE DATABASE firma_nazwisko;
+USE firma_kukula;
+
+CREATE TABLE stanowiska 
+( 
+id_stanowiska INT PRIMARY KEY AUTO_INCREMENT, 
+nazwa VARCHAR(20) UNIQUE NOT NULL,
+pensja DECIMAL(7,2) NOT NULL
+);
+
+DESCRIBE stanowiska
+
+CREATE TABLE pracownicy 
+( 
+id_pracownika INT PRIMARY KEY AUTO_INCREMENT, 
+imie VARCHAR(20) NOT NULL,
+nazwisko VARCHAR(20) NOT NULL,
+data_ur DATE NOT NULL, pesel CHAR(11) UNIQUE NOT NULL, miasto VARCHAR(20) NOT NULL,
+stanowisko_id INT NOT NULL REFERENCES stanowiska(id_stanowiska)
+);
+
+DESCRIBE pracownicy;
+
