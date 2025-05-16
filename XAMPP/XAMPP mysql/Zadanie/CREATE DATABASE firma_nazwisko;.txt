@@ -143,3 +143,4 @@ c) Usuń tabelę dane_adresowe
 sql
 
 DROP TABLE dane_adresowe;
+
