@@ -60,64 +60,60 @@ ALTER TABLE pracownicy CHANGE COLUMN stanowisko_id stanowisko INTEGER;
 
 # zadania 3.2
 
-1. ALTER TABLE stanowiska ADD wymagane_wykształcenie VARCHAR(20);
-
-
 1. Dodaj nowe pole wymagane_wykształcenie do tabeli stanowiska
 sql
-Kopiuj
-Edytuj
+
 ALTER TABLE stanowiska ADD wymagane_wykształcenie VARCHAR(20);
+
 2. Wyświetl strukturę tabeli stanowiska
 sql
-Kopiuj
-Edytuj
+
 DESCRIBE stanowiska;
+
 3. Wypełnij pole wymagane_wykształcenie odpowiednimi danymi
 sql
-Kopiuj
-Edytuj
+
 UPDATE stanowiska SET wymagane_wykształcenie = 'wyższe' WHERE nazwa IN ('kierownik', 'asystent');
 UPDATE stanowiska SET wymagane_wykształcenie = 'średnie' WHERE nazwa IN ('sekretarka', 'pracownik', 'kierowca');
+
 4. Wyświetl zawartość tabeli stanowiska
 sql
-Kopiuj
-Edytuj
+
 SELECT * FROM stanowiska;
+
 5. Zmień nazwę pola wymagane_wykształcenie na wykształcenie
 sql
-Kopiuj
-Edytuj
+
 ALTER TABLE stanowiska CHANGE COLUMN wymagane_wykształcenie wykształcenie VARCHAR(20);
+
 6. Dodaj do tabeli pracownicy nowe pole drugie_imie (pole opcjonalne)
 sql
-Kopiuj
-Edytuj
+
 ALTER TABLE pracownicy ADD drugie_imie VARCHAR(20);
+
 7. Ponownie wyświetl zawartość tabeli stanowiska
 sql
-Kopiuj
-Edytuj
+
 SELECT * FROM stanowiska;
+
 8. Utwórz nową tabelę adresy
 sql
-Kopiuj
-Edytuj
+
 CREATE TABLE adresy (
   id_pracownika INT,
   ulica VARCHAR(30),
   nr_domu VARCHAR(10),
   nr_mieszkania VARCHAR(10)
 );
+
 9. Wyświetl strukturę tabeli adresy
 sql
-Kopiuj
-Edytuj
+
 DESCRIBE adresy;
+
 10. Wypełnij tabelę adresy przykładowymi danymi
 sql
-Kopiuj
-Edytuj
+
 INSERT INTO adresy (id_pracownika, ulica, nr_domu, nr_mieszkania)
 VALUES
 (1, 'Lipowa', '12', '5'),
@@ -125,24 +121,25 @@ VALUES
 (3, 'Krótka', '4', '1'),
 (4, 'Nowa', '8', '3'),
 (5, 'Wesoła', '15', '6');
+
 11. Wyświetl zawartość tabeli adresy
 sql
-Kopiuj
-Edytuj
+
 SELECT * FROM adresy;
+
 12. Polecenia przy nauczycielu:
+
 a) Usuń pole nr_mieszkania z tabeli adresy
 sql
-Kopiuj
-Edytuj
+
 ALTER TABLE adresy DROP COLUMN nr_mieszkania;
+
 b) Zmień nazwę tabeli adresy na dane_adresowe
 sql
-Kopiuj
-Edytuj
+
 RENAME TABLE adresy TO dane_adresowe;
+
 c) Usuń tabelę dane_adresowe
 sql
-Kopiuj
-Edytuj
+
 DROP TABLE dane_adresowe;
