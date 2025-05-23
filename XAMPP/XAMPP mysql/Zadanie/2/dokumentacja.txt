@@ -1,7 +1,5 @@
-
 CREATE DATABASE zapytania_kukula;
 USE zapytania_kukula;
-
 
 CREATE TABLE pracownicy (
     id INT PRIMARY KEY,
@@ -22,100 +20,89 @@ INSERT INTO pracownicy (id, imie, nazwisko, placa, stanowisko, pesel) VALUES
 (7, 'Kacper', 'Adamczyk', 1610.50, 'serwisant', '92090912468'),
 (8, 'Kamil', 'Andrzejczak', 1200.00, 'asystent', NULL),
 (9, 'Krzysztof', 'Arkuszewski', 1500.00, 'magazynier', '80123109876'),
-(10, 'Kamil', 'Borowski', 1600.00, 'sprzedawca', '95050515432');
+(10, 'Kamil', 'Borowski', 1600.00, 'sprzedawca', '95050515432'),
+(11, 'Konrad', 'Kukuła', 1800.00, 'technik', '01010112345');
 
-INSERT INTO pracownicy (id, imie, nazwisko, placa, stanowisko, pesel)
-VALUES (11, 'Konrad', 'Kukuła', 1800.00, 'technik', '01010112345');
-
--- 2
-SELECT * FROM pracownicy;
+-- 1. Wyświetlenie imienia, nazwiska i stanowiska
 SELECT imie, nazwisko, stanowisko FROM pracownicy;
 
--- 3
+-- 2. Wyświetlenie imienia, nazwiska i płacy jako "wynagrodzenie"
 SELECT imie, nazwisko, placa AS wynagrodzenie FROM pracownicy;
 
--- 4
-SELECT * FROM pracownicy ORDER BY nazwisko ASC;
--- lub prościej
+-- 3. Sortowanie alfabetycznie po nazwisku
 SELECT * FROM pracownicy ORDER BY nazwisko;
 
--- 5
+-- 4. Sortowanie odwrotnie po nazwisku
 SELECT * FROM pracownicy ORDER BY nazwisko DESC;
 
--- 6
+-- 5. Sortowanie po nazwisku rosnąco, a potem po płacy malejąco
 SELECT * FROM pracownicy ORDER BY nazwisko ASC, placa DESC;
 
--- 7
-SELECT * FROM pracownicy WHERE nazwisko='Kowalski';
+-- 6. Pracownicy o nazwisku 'Kowalski'
+SELECT * FROM pracownicy WHERE nazwisko = 'Kowalski';
 
--- 8
+-- 7. Pracownicy z płacą < 1500
 SELECT * FROM pracownicy WHERE placa < 1500;
 
--- 9
-SELECT * FROM pracownicy WHERE id >= 4 AND id <= 8;
+-- 8. Pracownicy o id od 4 do 8 (BETWEEN)
 SELECT * FROM pracownicy WHERE id BETWEEN 4 AND 8;
 
--- 10
+-- 9. Płaca między 1500 a 1700
 SELECT * FROM pracownicy WHERE placa BETWEEN 1500 AND 1700 ORDER BY placa;
 
--- 11
-SELECT * FROM pracownicy WHERE id = 4 OR id = 6 OR id = 8;
-
--- 12
+-- 10. Pracownicy o id = 4, 6, 8
 SELECT * FROM pracownicy WHERE id IN (4, 6, 8);
 
--- 13
+-- 11. Imię zaczyna się na 'K'
 SELECT * FROM pracownicy WHERE imie LIKE 'K%';
 
--- 14
+-- 12. Pracownicy bez numeru PESEL
 SELECT id, imie, nazwisko FROM pracownicy WHERE pesel IS NULL;
 
--- 15
+-- 13. Płaca > 1500, stanowisko różne od 'kierownik', PESEL niepusty
 SELECT * FROM pracownicy WHERE placa > 1500 AND stanowisko <> 'kierownik' AND pesel IS NOT NULL;
 
--- 16
+-- 14. Unikalne nazwiska
 SELECT DISTINCT nazwisko FROM pracownicy ORDER BY nazwisko;
 
--- 17
+-- 15. Pracownicy o stanowisku 'kierownik'
 SELECT * FROM pracownicy WHERE stanowisko = 'kierownik';
 
--- 18
+-- 16. Nazwiska zaczynające się na 'A'
 SELECT * FROM pracownicy WHERE nazwisko LIKE 'A%';
 
--- 19
+-- 17. Nazwiska niekończące się na 'i'
 SELECT * FROM pracownicy WHERE nazwisko NOT LIKE '%i';
 
--- 20
+-- 18. Nazwiska zawierające literę 'c'
 SELECT * FROM pracownicy WHERE nazwisko LIKE '%c%';
 
--- 21
+-- 19. Stanowiska zaczynające się na 's'
 SELECT * FROM pracownicy WHERE stanowisko LIKE 's%';
 
--- 22
+-- 20. Nazwiska zaczynające się na 'A' lub 'M'
 SELECT * FROM pracownicy WHERE nazwisko LIKE 'A%' OR nazwisko LIKE 'M%';
 
--- 23
+-- 21. Pracownicy z płacą powyżej 1600
 SELECT nazwisko, placa FROM pracownicy WHERE placa > 1600;
 
--- 24
+-- 22. Pracownicy o nieparzystym ID
 SELECT * FROM pracownicy WHERE MOD(id, 2) = 1;
 
--- 25
+-- 23. Sprzedawcy, posortowani po nazwisku
 SELECT imie, nazwisko FROM pracownicy WHERE stanowisko = 'sprzedawca' ORDER BY nazwisko ASC;
 
--- 26
+-- 24. Nie-sprzedawcy, PESEL niepusty, płaca < 2000
 SELECT * FROM pracownicy WHERE stanowisko <> 'sprzedawca' AND pesel IS NOT NULL AND placa < 2000;
 
--- 27
+-- 25. Posortowanie pracowników po płacy malejąco
 SELECT nazwisko, placa FROM pracownicy ORDER BY placa DESC;
 
--- 28
+-- 26. Trzy najlepiej opłacane osoby
 SELECT nazwisko, placa FROM pracownicy ORDER BY placa DESC LIMIT 3;
 
--- 29
+-- 27. Trzy najgorzej opłacane osoby
 SELECT nazwisko, placa FROM pracownicy ORDER BY placa ASC LIMIT 3;
 
--- 30
+-- 28. Lista unikalnych stanowisk
 SELECT DISTINCT stanowisko FROM pracownicy;
-
-
