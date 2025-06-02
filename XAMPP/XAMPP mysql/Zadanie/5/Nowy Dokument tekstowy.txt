@@ -1,0 +1,3 @@
+SELECT u.imie, u.nazwisko, k.nazwa_klasy;
+FROM uczen AS u JOIN klasa AS k
+ON u.id_klasy - k.id_klasy;
