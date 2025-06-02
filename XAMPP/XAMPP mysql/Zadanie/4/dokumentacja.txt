@@ -1,0 +1,103 @@
+Temat: Złączenia. (baza nazwisko_firma)
+
+Ćwiczenia:
+
+Ćw.1
+SELECT * FROM pracownicy CROSS JOIN stanowiska;
+
+Ćw.1.1
+SELECT * FROM stanowiska CROSS JOIN pracownicy;
+
+Ćw.1.2
+SELECT imie, nazwisko, nazwa, pensja
+FROM pracownicy CROSS JOIN stanowiska;
+
+Ćw.1.3
+SELECT nazwa, pensja, imie, nazwisko
+FROM stanowiska CROSS JOIN pracownicy;
+
+Ćw.2
+SELECT imie, nazwisko, nazwa, pensja
+FROM pracownicy INNER JOIN stanowiska
+ON stanowisko=stanowiska.id_stanowiska;
+
+Ćw.3
+INSERT INTO pracownicy VALUES (8, 'Robert', 'Nowicki', '1985-11-01', '85110123456', 'Gdansk', 8);
+SELECT imie, nazwisko, nazwa, pensja
+FROM pracownicy LEFT OUTER JOIN stanowiska
+ON stanowisko=stanowiska.id_stanowiska;
+
+Ćw.4
+INSERT INTO stanowiska VALUES(6, 'informatyk', 4000.00);
+SELECT imie, nazwisko, nazwa, pensja
+FROM pracownicy RIGHT OUTER JOIN stanowiska
+ON stanowisko=stanowiska.id_stanowiska;
+
+Ćw.4.1
+SELECT imie, nazwisko, nazwa, pensja
+FROM stanowiska LEFT OUTER JOIN pracownicy
+ON stanowiska.id_stanowiska = stanowisko;
+
+Ćw.5 (nieobsługiwane w MySQL)
+SELECT imie, nazwisko, pesel, nazwa, pensja
+FROM pracownicy FULL OUTER JOIN stanowiska
+ON stanowisko=stanowiska.id_stanowiska;
+
+Ćw.6
+SELECT imie, nazwisko, pesel, nazwa, pensja
+FROM pracownicy LEFT OUTER JOIN stanowiska
+ON stanowisko=stanowiska.id_stanowiska
+WHERE nazwa IS NULL;
+
+Ćw.6.1
+SELECT nazwa
+FROM stanowiska LEFT JOIN pracownicy
+ON stanowiska.id_stanowiska = pracownicy.stanowisko
+WHERE nazwisko IS NULL;
+
+Temat: Operacje pionowe na zbiorach
+
+-- Tworzenie tabel uczelni:
+CREATE TABLE UczelniaA (
+  id INT, imie VARCHAR(50), nazwisko VARCHAR(50), pesel VARCHAR(11)
+);
+CREATE TABLE UczelniaB (
+  id INT, imie VARCHAR(50), nazwisko VARCHAR(50), pesel VARCHAR(11)
+);
+
+-- Wstawianie przykładowych danych:
+INSERT INTO UczelniaA VALUES
+(1, 'Jan', 'Kowalski', '01234567890'),
+(2, 'Adam', 'Nowak', '12345678901'),
+(3, 'Anna', 'Wilk', '23456789012');
+
+INSERT INTO UczelniaB VALUES
+(1, 'Olga', 'Wolska', '34567890123'),
+(2, 'Beata', 'Nowak', '45678901234'),
+(3, 'Jan', 'Kowalski', '01234567890');
+
+Ćw.2
+SELECT imie, nazwisko, pesel FROM UczelniaA
+UNION
+SELECT imie, nazwisko, pesel FROM UczelniaB;
+
+Ćw.3
+SELECT imie, nazwisko, pesel FROM UczelniaA
+UNION ALL
+SELECT imie, nazwisko, pesel FROM UczelniaB;
+
+Ćw.4 (nieobsługiwane w MySQL)
+SELECT imie, nazwisko, pesel FROM UczelniaA
+INTERSECT
+SELECT imie, nazwisko, pesel FROM UczelniaB;
+
+Ćw.5 (nieobsługiwane w MySQL)
+SELECT imie, nazwisko, pesel FROM UczelniaA
+EXCEPT
+SELECT imie, nazwisko, pesel FROM UczelniaB;
+
+Ćw.6
+SELECT imie, nazwisko, pensja
+FROM pracownicy
+JOIN stanowiska ON pracownicy.stanowisko = stanowiska.id_stanowiska
+WHERE imie LIKE 'A%' AND pensja > 2000;
