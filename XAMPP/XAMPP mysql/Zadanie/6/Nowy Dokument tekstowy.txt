@@ -34,9 +34,9 @@ ORDER BY p.nazwa;
 sql
 
 SELECT n.imie, n.nazwisko, p.nazwa AS przedmiot
-FROM nauczane_przedmioty np
-JOIN nauczyciel n ON np.id_nauczyciela = n.id_nauczyciela
-JOIN przedmioty p ON np.id_przedmiotu = p.id_przedmiotu;
+FROM nauczane_przedmioty as np
+JOIN nauczyciel as n ON np.id_nauczyciela = n.id_nauczyciela
+JOIN przedmioty as p ON np.id_przedmiotu = p.id_przedmiotu;
 
 
 6–11. Uczniowie z ocenami 1–6:
