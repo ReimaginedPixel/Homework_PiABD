@@ -1,0 +1,110 @@
+1. Do jakiej klasy chodzą uczniowie.
+sql
+
+SELECT u.Imie, u.Nazwisko, k.Nazwa_klasy
+FROM uczen u
+JOIN klasa k ON u.id_klasy = k.id_klasy;
+
+
+2. Którzy nauczyciele są wychowawcami.
+sql
+
+SELECT n.imie, n.nazwisko, k.Nazwa_klasy
+FROM klasa k
+JOIN nauczyciel n ON k.id_wychowawcy = n.id_nauczyciela;
+
+
+3. Podaj oceny uczniów (imię, nazwisko, oceny i daty ocen).
+sql
+SELECT u.Imie, u.Nazwisko, o.ocena, o.data_oceny
+FROM oceny o
+JOIN uczen u ON o.id_ucznia = u.id_ucznia;
+
+
+4. Nazwy przedmiotów, skróty i oceny — posortowane po nazwie.
+sql
+
+SELECT p.nazwa, p.skrot, o.ocena
+FROM oceny o
+JOIN przedmioty p ON o.id_przedmiotu = p.id_przedmiotu
+ORDER BY p.nazwa;
+
+
+5. Imię, nazwisko nauczyciela oraz jakich przedmiotów może uczyć.
+sql
+
+SELECT n.imie, n.nazwisko, p.nazwa AS przedmiot
+FROM nauczane_przedmioty np
+JOIN nauczyciel n ON np.id_nauczyciela = n.id_nauczyciela
+JOIN przedmioty p ON np.id_przedmiotu = p.id_przedmiotu;
+
+
+6–11. Uczniowie z ocenami 1–6:
+sql
+
+-- przykład dla oceny = 5:
+
+SELECT u.Imie, u.Nazwisko
+FROM oceny o
+JOIN uczen u ON o.id_ucznia = u.id_ucznia
+WHERE o.ocena = 5;
+Zmień o.ocena = 5 na 1, 2, 3, 4, 6 w kolejnych zapytaniach.
+
+
+12. Uczniowie, którzy skończyli szkołę i mają ocenę 5
+sql
+SELECT u.Imie, u.Nazwisko
+FROM oceny o
+JOIN uczen u ON o.id_ucznia = u.id_ucznia
+WHERE o.ocena = 5 AND u.Koniec = 'tak';
+
+
+13. Nazwa przedmiotu, ocena = 5, tylko uczniowie, którzy się uczą, sortowane po nazwie przedmiotu
+sql
+
+SELECT p.nazwa, o.ocena
+FROM oceny o
+JOIN przedmioty p ON o.id_przedmiotu = p.id_przedmiotu
+JOIN uczen u ON o.id_ucznia = u.id_ucznia
+WHERE o.ocena = 5 AND u.Koniec != 'tak'
+ORDER BY p.nazwa;
+
+
+14. Oceny klasy 3t
+sql
+
+SELECT u.Imie, u.Nazwisko, o.ocena
+FROM oceny o
+JOIN uczen u ON o.id_ucznia = u.id_ucznia
+JOIN klasa k ON u.id_klasy = k.id_klasy
+WHERE k.Nazwa_klasy = '3t';
+
+
+15. Oceny uczniów z klas 3 (2010–2020), tylko 4, posortowane po roku
+sql
+
+SELECT u.Imie, u.Nazwisko, o.ocena, YEAR(o.data_oceny) AS rok
+FROM oceny o
+JOIN uczen u ON o.id_ucznia = u.id_ucznia
+JOIN klasa k ON u.id_klasy = k.id_klasy
+WHERE k.Nazwa_klasy LIKE '3%' AND o.ocena = 4 AND YEAR(o.data_oceny) BETWEEN 2010 AND 2020
+ORDER BY rok;
+
+
+16. Nauczyciele, którzy wystawili ocenę 1 w 2010
+sql
+
+SELECT DISTINCT n.imie, n.nazwisko
+FROM oceny o
+JOIN nauczyciel n ON o.id_nauczyciela = n.id_nauczyciela
+WHERE o.ocena = 1 AND YEAR(o.data_oceny) = 2010;
+
+
+17. Imię, nazwisko, data i miejsce urodzenia ucznia + ocena 5 i data oceny, sortuj malejąco po imieniu
+sql
+
+SELECT u.Imie, u.Nazwisko, u.Data_urodzenia, u.Miejsce_urodzenia, o.ocena, o.data_oceny
+FROM oceny o
+JOIN uczen u ON o.id_ucznia = u.id_ucznia
+WHERE o.ocena = 5
+ORDER BY u.Imie DESC;

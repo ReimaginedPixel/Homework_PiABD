@@ -1,0 +1,36 @@
+Do jakiej klasy chodzą uczniowie. Wypisz imię, nazwisko oraz nazwę klasy.
+
+-- 
+
+Którzy nauczyciele są wychowawcami. Podaj imię, nazwisko nauczyciela oraz klasę, której są wychowawcami. 
+Podaj oceny uczniów. Wypisz imię oraz nazwisko ucznia oraz jego oceny, daty ocen. 
+Wypisz nazwy przedmiotów, skróty przedmiotów oraz oceny z tych przedmiotów. Posortuj dane po nazwie przedmiotu.
+Wypisz imię, nazwisko nauczyciela oraz jakich przedmiotów może uczyć. Połącz trzy tabelki.
+Wybierz imiona i nazwiska uczniów, którzy otrzymali 5;
+Wybierz imiona i nazwiska uczniów, którzy otrzymali 4;
+Wybierz imiona i nazwiska uczniów, którzy otrzymali 3;
+Wybierz imiona i nazwiska uczniów, którzy otrzymali 2;
+Wybierz imiona i nazwiska uczniów, którzy otrzymali 1;
+Wybierz imiona i nazwiska uczniów, którzy otrzymali 6;
+
+Wybierz imiona i nazwiska uczniów, którzy skończyli szkołę oraz otrzymali 5
+
+Wypisz nazwę przedmiotu, ocenę. Dane przefiltruj po ocenie 5.  Pozostaw tylko uczniów, którzy jeszcze się uczą. Posortuj dane po nazwie przedmiotu. 
+Wypisz oceny klasy 3t.
+Wypisz oceny uczniów, klas 3 w latach 2010 do 2020. wypisz same 4. Dane posortuj po roku.
+wypisz nauczycieli, którzy wystawili ocenę 1 w 2010; 
+Wypisz imie, nazwisko, datę urodzenia, miejsce urodzenia z tabeli uczen oraz ocenę, datę oceny z tabeli oceny. Wypisz tylko 5 oraz posortuj wynik malejąco (DESC) po imieniu
+
+
+
+
+
+
+
+
+
+
+
+
+
+
