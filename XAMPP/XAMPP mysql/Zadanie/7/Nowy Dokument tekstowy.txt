@@ -1,0 +1,91 @@
+🔢 12. Najniższe wynagrodzenie
+sql
+
+SELECT MIN(placa) AS 'Najniższe wynagrodzenie' FROM pracownicy;
+
+
+🔢 13. Ilu pracowników to magazynierzy
+sql
+
+SELECT COUNT(*) AS 'Liczba magazynierów'
+FROM pracownicy
+WHERE stanowisko = 'magazynier';
+
+
+🔢 14. Średnie wynagrodzenie kierowników
+sql
+
+SELECT AVG(placa) AS 'Średnia płaca kierowników'
+FROM pracownicy
+WHERE stanowisko = 'kierownik';
+
+
+🔢 15. Najniższa płaca sprzedawcy
+sql
+
+SELECT MIN(placa) AS 'Najniższe wynagrodzenie sprzedawcy'
+FROM pracownicy
+WHERE stanowisko = 'sprzedawca';
+
+
+🔢 16. Średnie, maksymalne i minimalne wynagrodzenie sprzedawców
+sql
+
+SELECT 
+  AVG(placa) AS 'Średnia płaca',
+  MAX(placa) AS 'Najwyższa płaca',
+  MIN(placa) AS 'Najniższa płaca'
+FROM pracownicy
+WHERE stanowisko = 'sprzedawca';
+
+
+🔢 17. Suma wynagrodzeń sprzedawców
+sql
+
+SELECT SUM(placa) AS 'Suma płac sprzedawców'
+FROM pracownicy
+WHERE stanowisko = 'sprzedawca';
+
+
+🔢 18. Średnia płaca według imion
+sql
+
+SELECT imie, AVG(placa) AS 'Średnia płaca'
+FROM pracownicy
+GROUP BY imie;
+
+
+🔢 19. Pracownik z najwyższą płacą
+sql
+
+SELECT imie, nazwisko, placa
+FROM pracownicy
+WHERE placa = (SELECT MAX(placa) FROM pracownicy);
+
+
+🔢 20. Suma wypłat na każde stanowisko
+sql
+
+SELECT stanowisko, SUM(placa) AS 'Suma wypłat'
+FROM pracownicy
+GROUP BY stanowisko;
+
+
+🔢 21. Liczba pracowników na stanowiskach (rosnąco)
+sql
+
+SELECT stanowisko, COUNT(*) AS 'Liczba pracowników'
+FROM pracownicy
+GROUP BY stanowisko
+ORDER BY stanowisko;
+
+
+🔢 22. Min, Max i Avg płaca na każde stanowisko
+sql
+
+SELECT stanowisko,
+  MIN(placa) AS 'Min płaca',
+  MAX(placa) AS 'Max płaca',
+  AVG(placa) AS 'Średnia płaca'
+FROM pracownicy
+GROUP BY stanowisko;
