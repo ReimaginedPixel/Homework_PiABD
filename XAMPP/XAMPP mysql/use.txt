@@ -1,4 +1,4 @@
 cd ..
 cd ..
-xampp/mysql/bin
+cd xampp/mysql/bin
 mysql -u root
